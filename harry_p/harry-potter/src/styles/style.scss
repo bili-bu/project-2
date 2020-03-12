@@ -1,0 +1,78 @@
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color:black;
+}
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  font-size: 80px;
+  text-align: left;
+  text-decoration: underline;
+  margin: 20px 0px 0px 80px;
+}
+.founder {
+  text-align: left;
+}
+
+.navbar {
+  background-color: black;
+  border-bottom: 2px ridge white;
+}
+
+.title-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: black;
+}
+img {
+  height: 200px;
+  width: auto;
+  animation: scale(1) 2s infinite;
+}
+
+.input {
+  margin-bottom: 10px;
+  font-size: 80px;
+  border: none;
+  background-color: transparent;
+  color:  #FFC500;
+}
+
+h1, div {
+  color: #FFC500;
+  text-align: center;
+  font-family: HARRYP_;
+}
+
+.hide {
+  display: none;
+}
+
+.HouseBody {
+  background-color: black;
+}
+
+.HouseSection {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.HouseCard {
+  background-color:grey;
+  padding: 20px;
+  margin: 50px 20px;
+  width: 35%;
+  border: 1px ridge brown;
+  border-radius: 20px;
+}
+

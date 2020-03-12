@@ -1,27 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import 'bulma'
-import './styles/style.scss'
 import axios from 'axios'
-import Spinner from './assets/Spinner'
 
-const App = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route path='/' component={Home} />
-
-
-    </Switch>
-  </BrowserRouter>
-)
+import Spinner from '../assets/Spinner'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   constructor() {
     super()
     this.state = {
       initialData: '',
-      data: ''
+      data: '',
+      chosenHouse: ''
     }
   }
 
@@ -30,7 +19,6 @@ class Home extends React.Component {
     axios.get('https://www.potterapi.com/v1/sortingHat')
       .then((res) => {
         this.setState({ initialData: res.data })
-        console.log(this.state)
 
       })
   }
@@ -40,12 +28,20 @@ class Home extends React.Component {
     axios.get('https://www.potterapi.com/v1/sortingHat')
       .then((res) => {
         this.setState({ data: res.data })
-        console.log(this.state)
-
+        console.log(this.state.data)
       })
   }
 
-  // .then(console.log(this.state.data))
+  HandleRoute() {
+    if (this.state.data === 'Ravenclaw') {
+      <Link to='/houses/'/>
+    }
+  }
+
+
+
+
+
   render() {
 
     if (!this.state.initialData) return <Spinner />
@@ -54,8 +50,10 @@ class Home extends React.Component {
       <div className="title">
         <h1>Welcome to Hogwarts!</h1>
       </div>
-      <h2 className="subtitle">
-        Click the Sorting Hat to find a home</h2>
+      <div>
+        <h2 className="title is-4">
+          Click the Sorting Hat to find a home</h2>
+      </div>
       <div className="sortingHat"
         onClick={() => this.PickHouse()}
       >
@@ -63,18 +61,28 @@ class Home extends React.Component {
       </div>
       <div>
         <input
-          className="input"
+          className="input has-text-centered"
           readOnly='defaultValue'
           type="text"
           value={this.state.data} />
 
-        <div> Click here to explore your house!</div>
+        {this.state.data ?  
+          <button>
+            <Link to={this.state.data === 'Ravenclaw' ? '/houses/5a05da69d45bd0a11bd5e06f' 
+              : this.state.data === 'Gryffindor' ? 'houses/5a05e2b252f721a3cf2ea33f' 
+                : this.state.data === 'Hufflepuff' ? 'houses/5a05dc58d45bd0a11bd5e070' 
+                  : 'houses/5a05dc8cd45bd0a11bd5e071'}>
+
+            Click here to explore your house! </Link> 
+          </button>
+          :
+
+          <h2></h2>
+        }
       </div>
     </div>
   }
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+export default Home
+
