@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Spinner from '../assets/Spinner'
 
 
 class Spells extends React.Component {
@@ -22,7 +23,7 @@ class Spells extends React.Component {
 
   render() {
 
-    if (!this.state.data) return null
+    if (!this.state.data) return <Spinner />
     const { data } = this.state
 
 

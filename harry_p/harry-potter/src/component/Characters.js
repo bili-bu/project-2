@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Spinner from '../assets/Spinner'
 
 
 class Characters extends React.Component {
@@ -34,7 +35,7 @@ class Characters extends React.Component {
 
 
   render() {
-    if (!this.state.data) return null
+    if (!this.state.data) return <Spinner />
     const data = this.state.data
     console.log(this.props)
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Spinner from '../assets/Spinner'
 
 class SingleHouse extends React.Component {
 
@@ -24,7 +25,7 @@ class SingleHouse extends React.Component {
   }
 
   render() {
-    if (!this.state.data) return null
+    if (!this.state.data) return <Spinner />
     return (
       <div className='title-container'>
         {this.state.data.map(house => {
