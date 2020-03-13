@@ -47,11 +47,9 @@ class Home extends React.Component {
     if (!this.state.initialData) return <Spinner />
 
     else return <div className="title-container">
-      <div className="title">
-        <h1>Welcome to Hogwarts!</h1>
-      </div>
       <div>
-        <h2 className="title is-4">
+        <img src='./assets/HogwartsLogo.png'/>
+        <h2>
           Click the Sorting Hat to find a home</h2>
       </div>
       <div className="sortingHat"
@@ -64,20 +62,19 @@ class Home extends React.Component {
           className="input has-text-centered"
           readOnly='defaultValue'
           type="text"
-          value={this.state.data} />
+          value= {this.state.data} />
 
         {this.state.data ?  
-          <button>
+          <div className='overlay'>
             <Link to={this.state.data === 'Ravenclaw' ? '/houses/5a05da69d45bd0a11bd5e06f' 
               : this.state.data === 'Gryffindor' ? 'houses/5a05e2b252f721a3cf2ea33f' 
                 : this.state.data === 'Hufflepuff' ? 'houses/5a05dc58d45bd0a11bd5e070' 
                   : 'houses/5a05dc8cd45bd0a11bd5e071'}>
 
             Click here to explore your house! </Link> 
-          </button>
+          </div>
           :
-
-          <h2></h2>
+          null
         }
       </div>
     </div>

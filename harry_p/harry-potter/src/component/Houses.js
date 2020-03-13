@@ -51,8 +51,7 @@ class Houses extends React.Component {
                     <h2>{house.name}</h2>
                     {house.values.map((value, key) => {
                       return (
-                        <h5 key={key}
-                          className="subtitle is-4">{value}</h5>
+                        <h5 key={key}>{value}</h5>
                       )
                     })}
 

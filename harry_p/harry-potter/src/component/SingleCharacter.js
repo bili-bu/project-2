@@ -25,16 +25,22 @@ class SingleCharacter extends React.Component {
 
   render() {
     if (!this.state.data) return null
-    const { name, role, house, school } = this.state.data
-    
-    return  <div className='title-container'>
-      <h2>{name}</h2>
-      <p>Occupation: {role} </p>
-      <p>House: {house} </p>
-      <p>{school}</p>
+    const { name, role, house, school, ministryOfMagic, orderOfThePhoenix, dumbledoresArmy, deathEater } = this.state.data
 
+    return <div className='flexContainer'>
+      <div className="singleCharacter">
+        <h2>{name}</h2>
+        <p>{role} </p>
+        <p>{house} </p>
+        <p>{school}</p>
+
+        { ministryOfMagic ? <p> Works at the Ministry of Magic</p> : null }
+        { orderOfThePhoenix ? <p> Part of the Order Of The Phoenix</p> : null }
+        { dumbledoresArmy ? <p> Part of Dumbledore's Army</p> : null }
+        { deathEater ? <p> Hails Voldermort</p> : null }
+      </div>
     </div>
-    
+
   }
 }
 

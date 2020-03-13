@@ -39,7 +39,7 @@ class Characters extends React.Component {
     console.log(this.props)
 
     return (
-      <div className="HouseBody">
+      <div>
         <h1>Characters</h1>
         <section className="HouseSection">
           {data.map(character => {
