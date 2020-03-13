@@ -26,11 +26,11 @@ class Houses extends React.Component {
       })
   }
 
-  toSingleHouse(event) {
-    console.log(event)
-    // const id = this.props.match.params.id
-    // this.props.history.push(`/houses/${id}`)
-  }
+  // toSingleHouse(event) {
+  //   console.log(event)
+  //   // const id = this.props.match.params.id
+  //   // this.props.history.push(`/houses/${id}`)
+  // }
 
 
   render() {
