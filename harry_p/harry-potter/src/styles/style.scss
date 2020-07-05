@@ -3,8 +3,6 @@
   font-family: 'Carrois Gothic SC', sans-serif;
 }
 
-
-
 body {
   height: 100%;
   width: 100%;
@@ -62,7 +60,6 @@ body {
 .navbar {
   background-color: black;
   border-bottom: 2px ridge silver;
-
   a {
     font-size: 20px;
     color: silver;
@@ -73,7 +70,7 @@ body {
 }
 
 .title-container {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -98,8 +95,6 @@ img {
 div {
   color: #FFC500;
   text-align: center;
-  
-
   h1{
     font-size: 60px;
   }
@@ -114,7 +109,7 @@ div {
 
 .HouseBody {
   background-color: black;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   align-items: space-evenly;
 }
@@ -171,4 +166,3 @@ div {
     background-color: black;
  }
 }
-

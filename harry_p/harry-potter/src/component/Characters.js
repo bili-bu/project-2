@@ -3,15 +3,12 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Spinner from '../assets/Spinner'
 
-
 class Characters extends React.Component {
 
   constructor() {
     super()
     this.state = {
       data: null
-
-
     }
   }
 
@@ -23,16 +20,12 @@ class Characters extends React.Component {
           data: res.data
         })
         console.log(this.state.data)
-
       })
   }
 
   toSingleHouse(event) {
     console.log(event)
-    // const id = this.props.match.params.id
-    // this.props.history.push(`/houses/${id}`)
   }
-
 
   render() {
     if (!this.state.data) return <Spinner />
@@ -48,8 +41,6 @@ class Characters extends React.Component {
               <div key={character._id} className='HouseCard'>
                 <Link to={`/characters/${character._id}`}>
                   <div>
-
-
                     <h2>{character.name}</h2>
                   </div>
                 </Link>
@@ -58,7 +49,6 @@ class Characters extends React.Component {
           })}
         </section>
       </div >
-
     )
   }
 }

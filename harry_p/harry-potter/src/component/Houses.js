@@ -9,8 +9,6 @@ class Houses extends React.Component {
     super()
     this.state = {
       data: null
-
-
     }
   }
 
@@ -22,22 +20,13 @@ class Houses extends React.Component {
           data: res.data
         })
         console.log(this.state.data)
-
       })
   }
-
-  // toSingleHouse(event) {
-  //   console.log(event)
-  //   // const id = this.props.match.params.id
-  //   // this.props.history.push(`/houses/${id}`)
-  // }
-
 
   render() {
     if (!this.state.data) return <Spinner />
     const data = this.state.data
     console.log(this.props)
-
     return (
       <div className="HouseBody">
         <h1>Houses</h1>
@@ -47,15 +36,12 @@ class Houses extends React.Component {
               <div key={house._id} className='HouseCard'>
                 <Link to={`/houses/${house._id}`}>
                   <div>
-
-
                     <h2>{house.name}</h2>
                     {house.values.map((value, key) => {
                       return (
                         <h5 key={key}>{value}</h5>
                       )
                     })}
-
                   </div>
                 </Link>
               </div>
@@ -63,7 +49,6 @@ class Houses extends React.Component {
           })}
         </section>
       </div >
-
     )
   }
 }

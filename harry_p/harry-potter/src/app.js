@@ -13,7 +13,7 @@ import Spells from './component/Spells'
 import NavBar from './component/NavBar'
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/project-2">
     <NavBar />
     <Switch>
       <Route exact path='/' component={Home} />
@@ -22,7 +22,6 @@ const App = () => (
       <Route exact path='/characters' component={Characters} />
       <Route exact path='/characters/:id' component={SingleCharacter} />
       <Route exact path='/spells' component={Spells} />
-
     </Switch>
   </BrowserRouter>
 )

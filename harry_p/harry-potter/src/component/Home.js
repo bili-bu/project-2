@@ -14,15 +14,12 @@ class Home extends React.Component {
     }
   }
 
-
   componentDidMount() {
     axios.get('https://www.potterapi.com/v1/sortingHat')
       .then((res) => {
         this.setState({ initialData: res.data })
-
       })
   }
-
 
   PickHouse() {
     axios.get('https://www.potterapi.com/v1/sortingHat')
@@ -32,30 +29,18 @@ class Home extends React.Component {
       })
   }
 
-  HandleRoute() {
-    if (this.state.data === 'Ravenclaw') {
-      <Link to='/houses/'/>
-    }
-  }
-
-
-
-
-
   render() {
-
     if (!this.state.initialData) return <Spinner />
-
     else return <div className="title-container">
       <div>
-        <img src='./assets/HogwartsLogo.png'/>
+        <img src='https://i.imgur.com/9H1zWqQ.png'/>
         <h2>
           Click the Sorting Hat to find a home</h2>
       </div>
       <div className="sortingHat"
         onClick={() => this.PickHouse()}
       >
-        <img src='./assets/sortingHat.png' />
+        <img src='https://i.imgur.com/p88EZCr.png'/>
       </div>
       <div>
         <input
@@ -63,14 +48,12 @@ class Home extends React.Component {
           readOnly='defaultValue'
           type="text"
           value= {this.state.data} />
-
         {this.state.data ?  
           <div className='overlay'>
             <Link to={this.state.data === 'Ravenclaw' ? '/houses/5a05da69d45bd0a11bd5e06f' 
               : this.state.data === 'Gryffindor' ? 'houses/5a05e2b252f721a3cf2ea33f' 
                 : this.state.data === 'Hufflepuff' ? 'houses/5a05dc58d45bd0a11bd5e070' 
                   : 'houses/5a05dc8cd45bd0a11bd5e071'}>
-
             Click here to explore your house! </Link> 
           </div>
           :
@@ -82,4 +65,3 @@ class Home extends React.Component {
 }
 
 export default Home
-

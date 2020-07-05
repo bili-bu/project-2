@@ -20,7 +20,6 @@ class SingleHouse extends React.Component {
           data: res.data
         })
         console.log(this.state.data)
-
       })
   }
 
@@ -46,7 +45,6 @@ class SingleHouse extends React.Component {
                 })}
               </div>
             </div>
-
           )
         })}
       </div>
