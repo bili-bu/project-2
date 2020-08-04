@@ -16,7 +16,7 @@ Given our tight deadline, my project partner and I were keen on finding a suitab
 
 - Read up on spells which are cast
 
-Check out the [result](https://bili-bu.github.io/project-2/)
+Check out the [result](https://bili-bu.github.io/project-2/)!
 
 ## Brief
 
@@ -43,38 +43,39 @@ Check out the [result](https://bili-bu.github.io/project-2/)
 
 ## The Approach 
 
-- As a team we decided we wanted to use an API we were both happy working and creating something with. It was key to make sure we understood why a user would visit the page and that we could utilise the information from the API as much as possible. 
+During our time preparing for this project we were introduced to a host of different APIs and realised that some of them were of better quality than others. Given that the API would play a very central role in our project, my team mate and I decided to find one which was of good quality with a lot of information we could mine to make an interesting application which would keep any potential user engaged. 
 
-- We considered using a number of API’s however decided together the Harry Potter API was straight forward in accessing information. The API required a unique key to access data, which was placed into each of our requests. 
 
-- To explore the API’s we considered, we used **Insomnia** to do so. An example is shown below.
+We came across a Harry Potter API which was straight forward in accessing the information. To use the API, we were  required a unique key to access data, which was placed into each of our requests made to the API. Given that we had gained familiarity with the program **Insomnia**, we used it extensively to understand how the data in the API was structured and how best to utilize it. Below an example of how we explored the data in the API through Insomnia:
 
 <img src='https://i.imgur.com/x2ekDKm.png' width='700'>
 
-- Before coding, we both decided to outline our React webpage on how each page would be laid out: 
+Before we started coding, we both decided to that it was important that we should agree to the structure of our final product. We started out by drawing a diagram with the different components we would need to build our MVP. Below a copy of that drawing:
 
 <div style='text-align:center'>
 <img src='https://i.imgur.com/gbZ2fdy.png' height='500'>
 </div>
 
-- After having completed our layout, we could decipher how many components our webpage would have and the routes associated with them: 
+We came to the conclusion that we would need seven components which included a NavBar. This meant that we would have six routes which we had to include in our application **Router**. Below a list of the different routes:
 
-    - A Homepage with the route of `/`
+- The Homepage `/`
 
-    - An overview of the  Hogwarts houses at `/houses`
+- The overview of Hogwarts houses `/houses`
 
-    - Individual Hogwarts house pages, which would be found by their individual IDs `/houses/:id`
+- The individual Hogwarts houses pages designated through their IDs `/houses/:id`
 
-    - A list of all the characters in the franchise at `/characters`
+- The full list of characters `/characters`
 
-    - Character detail pages which would also use their unique IDs at `/characters/:id`
+- The individual character pages designated through their IDs `/characters/:id`
 
-    - Full list of spells at `/spells`
+- The full list of spells `/spells`
 
 
 ### Homepage 
 
-- The homepage implemented one endpoint from the API, a random return of a Hogwarts house. My partner and I decided this would be a fun interactive element for users when they visit the page. We placed a sorting hat on our landing page which when clicked runs the `PickHouse` function. 
+The API we chose to use for our project came with an interesting feature which, when called, would give us a random Hogwarts house name. We decided that this could be used to create a fun and interactive first step into the world of Harry Potter: through clicking on the picture of the famous sorting hat, the user would be sorted into a random house at Hogwarts.
+
+We decided that this feature would best be used on our landing page (`Home.js`). When the user clicks on the sorting hat the `PickHouse`function is run:
 
 ```js
 
@@ -85,12 +86,9 @@ Check out the [result](https://bili-bu.github.io/project-2/)
         console.log(this.state.data)
       })
   }
-
   ```
 
-  - Once called, the function will put in a GET request to the API to return a random house. The response is then stored within a state variable known as ‘data’ and displayed to the user. 
-
-  - Once this was implemented, we also decided to generate a link to the house that was randomly chosen. This required a number of `ternary operators`  to be put in place to change the link depending on the house that was chosen and to also display nothing before the `PickHouse` function was run.
+The functon executes a **get** request to the API to receives a house name picked at random. We then store the response in the state variable `data`, which is displayed on the page under the sorting hat. We also wanted to have a link to the house page of the randomly picked house so that the user could go explore his new house as a next step in the experience. To achieve this, we decided to use `ternary operators` to choose the house page depending on the name that was stored in the state variable `data`. If the varibale is empty (before the user clicks on the sorting hat) then no text or link is displayed.
 
 ```js 
 
